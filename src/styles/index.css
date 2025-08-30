@@ -6,11 +6,15 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  background: radial-gradient(circle, rgba(255, 225, 170, 0.6), rgba(255, 241, 197, 0.857), rgb(255, 255, 255));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-size: 200% 200%;
+  animation: movebg 7s linear infinite alternate;
 }
 
 a {
@@ -64,5 +68,13 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+@keyframes movebg {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
   }
 }

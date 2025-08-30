@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import ApiLinkSection from './components/ApiLinkSection'
 
 function App() {
