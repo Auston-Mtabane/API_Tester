@@ -24,7 +24,7 @@
 }
 
 .rounded-div select {
-  color: black;
+  color: rgb(83, 83, 83);
   font-family: inherit;
 
   text-align: center;
@@ -33,11 +33,53 @@
   background-color: rgba(0, 0, 0, 0.046);
 
   padding: 0.5em;
+  border-top-left-radius: .7em;
+  border-bottom-left-radius: .7em;
+
 }
-.rounded-div input{
+
+.rounded-div input {
   background-color: rgba(0, 0, 0, 0.046);
+  color: rgb(83, 83, 83);
   border: none;
+  padding-inline: 1em;
 }
+
+.rounded-div button {
+
+  border: none;
+  border-top-right-radius: .7em;
+  border-bottom-right-radius: .7em;
+  transition: all 0.3s;
+}
+.rounded-div button:active{
+
+  transform: scale(0.95);
+
+}
+.rounded-div button:hover{
+
+  background-color: rgba(91, 112, 129, 0.82);
+
+}
+
+option{
+  font-weight: bolder;
+  background-color: #ffffff00;
+}
+#GET{
+  color: #4CAF50;
+}
+#POST{
+  color: #007BFF;
+}
+#PUT{
+  color: #FF7F50;
+}
+#DELETE{
+  color: #DC3545;
+}
+
 
 #meta-data {
   margin-top: 1em;

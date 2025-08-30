@@ -9,7 +9,8 @@ function ApiLinkSection() {
             <option value="DELETE" id="DELETE">DELETE</option>
           </select>
 
-          <input type="url" name="requestUrl" id="request-input" />
+          <input type="url" name="requestUrl" id="request-input" placeholder="https://catfact.ninja/fact
+" />
           <button type="submit">SEND</button>
         </form>
       </div>
