@@ -1,13 +1,24 @@
-import { Component } from 'react'
+import { Component } from "react";
 
 export class ApiLinkSection extends Component {
-  static propTypes = {}
+  static propTypes = {};
 
   render() {
     return (
-      <div>ApiLinkSection</div>
-    )
+      <>
+        <div className="rounded-div">
+          <p>ApiLinkSection</p>
+        </div>
+        <div id="meta-data">
+
+        </div>
+        <div id="response">
+
+        </div>
+
+      </>
+    );
   }
 }
 
-export default ApiLinkSection
+export default ApiLinkSection;
