@@ -5,13 +5,18 @@
   text-align: center;
 }
 .rounded-div{
+
   
-  background-color: rgba(255, 255, 255, 0.113);
-  height: 20vh;
+  
+  background: radial-gradient(circle, rgba(180, 255, 170, 0.6), rgba(144, 240, 125, 0.857), rgba(255, 255, 255, 0));
+  height: 15vh;
   width: 60vw;
-  border: 1px solid white;
+  border: 1px solid rgba(180, 180, 180, 0.498);
   border-radius: 20px;
   box-shadow: 0 5px 20px  rgba(0, 0, 0, 0.108);
+
+  background-size: 100% 1000%;
+  background-position: 50% 0%;
 }
 
 #meta-data{
