@@ -1,7 +1,12 @@
-function Response() {
+interface Resp {
+    data: string
+}
+
+function Response({data}:Resp) {
+
   return (
     <>
-      <div id="response"></div>
+      <div id="response">{data}</div>
     </>
   );
 }

@@ -9,11 +9,18 @@ async function sendReq (url:string,method:string,data_:string): Promise<void> {
       const response = await fetch(url, { method: method, body: bodyData });
       const data = await response.json();
       console.log("Response:", data);
+      return data;
+      
     } catch (error) {
       console.error("Error:", error);
     }
 }
-function ApiLinkSection() {
+interface Resp{
+  respData: string,
+  setRespData:React.Dispatch<React.SetStateAction<string>>
+}
+function ApiLinkSection({respData,setRespData}:Resp) {
+
   const [classname,setClassname] = useState("GET");
   const [url,setUrl] = useState("");
   const [showBody,setShowBody] = useState(true);
@@ -30,7 +37,9 @@ function ApiLinkSection() {
   }
  
   const handleSubmit = async () =>{
-    sendReq(url,classname,body);
+    const data = await sendReq(url,classname,body);
+    setRespData(JSON.stringify(data));
+    
   }
 
   
