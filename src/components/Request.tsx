@@ -1,12 +1,12 @@
 import { useState } from "react";
 import '../styles/App.css';
 
-async function sendReq (url:string): Promise<void> {
-  const method = "GET"
-  console.log(`Sending ${method} request to ${url}`);
-
+async function sendReq (url:string,method:string,data_:string): Promise<void> {
+  method = "GET"
+  console.log(`Sending ${method} request to ${url} with ${data_}`);
+    const bodyData = (data_ === "") ? undefined : data_;
     try {
-      const response = await fetch(url, { method });
+      const response = await fetch(url, { method: method, body: bodyData });
       const data = await response.json();
       console.log("Response:", data);
     } catch (error) {
@@ -16,13 +16,21 @@ async function sendReq (url:string): Promise<void> {
 function ApiLinkSection() {
   const [classname,setClassname] = useState("GET");
   const [url,setUrl] = useState("");
+  const [showBody,setShowBody] = useState(true);
+  const [body,setBody] = useState("");
+
   const handleChange = (event:React.ChangeEvent<HTMLSelectElement>) =>{
     const method = event.target.value;
+
+    let list:string[] = ["POST","PUT"];
+
+    
     setClassname(method);
+    setShowBody(!list.includes(String(method)));
   }
  
   const handleSubmit = async () =>{
-    sendReq(url);
+    sendReq(url,classname,body);
   }
 
   
@@ -38,6 +46,9 @@ function ApiLinkSection() {
 
           <input type="url" name="requestUrl" id="request-input" placeholder="https://catfact.ninja/fact" onChange={(event)=>{setUrl(event.target.value)}} />
           <button type="submit" onClick={handleSubmit}>SEND</button>
+        </div>
+        <div className="request-body" hidden={showBody} >
+          <input type="text" onChange={(e)=>{setBody(e.target.value)}}/>
         </div>
       </div>
   );

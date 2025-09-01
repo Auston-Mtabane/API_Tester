@@ -6,15 +6,14 @@
 }
 
 .rounded-div {
-
-  display: flow-box;
+  max-width: 800px;
+  min-width: 370px;
   font-family: inherit;
-  padding: .8em;
+  padding: 0.8em;
   width: 60vw;
   border: 1px solid rgba(180, 180, 180, 0.498);
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.108);
-
 }
 
 .form {
@@ -22,7 +21,6 @@
   grid-template-columns: 2fr 5fr 2fr;
   gap: 0.5em;
 }
-
 
 .rounded-div input {
   background-color: rgba(0, 0, 0, 0.046);
@@ -32,25 +30,19 @@
 }
 
 .rounded-div button {
-
   border: none;
-  border-top-right-radius: .7em;
-  border-bottom-right-radius: .7em;
+  border-top-right-radius: 0.7em;
+  border-bottom-right-radius: 0.7em;
   transition: all 0.3s;
   background-color: rgba(124, 196, 255, 0.82);
-
 }
 
 .rounded-div button:active {
-
   transform: scale(0.95);
-
 }
 
 .rounded-div button:hover {
-
   background-color: rgba(91, 112, 129, 0.82);
-
 }
 
 option {
@@ -59,78 +51,52 @@ option {
 }
 
 #GET {
-  color: #4CAF50;
-
+  color: #4caf50;
 }
 
 #POST {
-  color: #007BFF;
+  color: #007bff;
 }
 
 #PUT {
-  color: #FF7F50;
+  color: #ff7f50;
 }
 
 #DELETE {
-  color: #DC3545;
+  color: #dc3545;
+}
+
+.GET,
+.POST,
+.PUT,
+.DELETE {
+  font-family: inherit;
+
+  text-align: center;
+  font-weight: bolder;
+  border: 1px solid;
+  background-color: rgba(0, 0, 0, 0.046);
+
+  padding: 0.5em;
+  border-top-left-radius: 0.7em;
+  border-bottom-left-radius: 0.7em;
 }
 
 .GET {
-  color: #4CAF50;
-  font-family: inherit;
-
-  text-align: center;
-  font-weight: bolder;
-  border: 1px solid ;
-  background-color: rgba(0, 0, 0, 0.046);
-
-  padding: 0.5em;
-  border-top-left-radius: .7em;
-  border-bottom-left-radius: .7em;
+  color: #4caf50;
 }
 
 .POST {
-  color: #007BFF;
-  font-family: inherit;
-
-  text-align: center;
-  font-weight: bolder;
-  border: 1px solid ;
-  background-color: rgba(0, 0, 0, 0.046);
-
-  padding: 0.5em;
-  border-top-left-radius: .7em;
-  border-bottom-left-radius: .7em;
+  color: #007bff;
 }
 
 .PUT {
-  color: #FF7F50;
-  font-family: inherit;
-
-  text-align: center;
-  font-weight: bolder;
-  border: 1px solid ;
-  background-color: rgba(0, 0, 0, 0.046);
-
-  padding: 0.5em;
-  border-top-left-radius: .7em;
-  border-bottom-left-radius: .7em;
+  color: #ff7f50;
 }
 
 .DELETE {
   color: #f76778;
-  font-family: inherit;
-
-  text-align: center;
-  font-weight: bolder;
-  border: 1px solid ;
-  background-color: rgba(0, 0, 0, 0.046);
-
-  padding: 0.5em;
-  border-top-left-radius: .7em;
-  border-bottom-left-radius: .7em;
 }
-
 
 #meta-data {
   margin-top: 1em;
