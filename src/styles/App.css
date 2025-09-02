@@ -109,25 +109,21 @@ option {
 #response {
   color: #ff4daf;
   display: block;
+  justify-content: left;
   margin-top: 1em;
   height: auto;
-  padding: 1em;
+  padding-inline: 1em;
+  padding-bottom: 1em;
   width: 60vw;
-  border: 1px solid white;
+  border: 1px solid rgb(194, 194, 194);
   border-radius: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#title-div {
+  display: flex;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  margin-bottom: 1em;
 }
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#title-div h4{
+  color: #777777;
 }
