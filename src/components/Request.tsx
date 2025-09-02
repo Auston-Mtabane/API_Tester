@@ -1,25 +1,29 @@
 import { useState } from "react";
 import '../styles/App.css';
 
-async function sendReq (url:string,method:string,data_:string): Promise<void> {
+async function sendReq (url:string,method:string,data_:string): Promise<any> {
   method = "GET"
   console.log(`Sending ${method} request to ${url} with ${data_}`);
     const bodyData = (data_ === "") ? undefined : data_;
     try {
+      const startTime = performance.now();
       const response = await fetch(url, { method: method, body: bodyData });
+      const endTime = performance.now();
+      console.log('Time: ',endTime-startTime," ms")
       const data = await response.json();
       console.log("Response:", data);
+
       return data;
       
     } catch (error) {
       console.error("Error:", error);
+      return {}; // Always return an object
     }
 }
 interface Resp{
-  respData: string,
   setRespData:React.Dispatch<React.SetStateAction<string>>
 }
-function ApiLinkSection({respData,setRespData}:Resp) {
+function ApiLinkSection({setRespData}:Resp) {
 
   const [classname,setClassname] = useState("GET");
   const [url,setUrl] = useState("");
