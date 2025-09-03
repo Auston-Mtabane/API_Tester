@@ -5,6 +5,9 @@
 .response h1 {
     color: chartreuse;
 }
-#id {
+#gray {
     color: rgb(59, 112, 112);
+}
+#blue {
+    color: rgb(18, 173, 173);
 }

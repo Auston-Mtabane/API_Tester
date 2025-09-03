@@ -1,5 +1,5 @@
 export function strJsonToPrittyHtml(str: string): string {
-    let finalstr: string = "";
+    let finalstr: string = "<pre><code>";
     for (let index = 0; index < str.length; index++) {
 
         switch (str[index]) {
@@ -7,25 +7,28 @@ export function strJsonToPrittyHtml(str: string): string {
             case '{':
             case '(':
             case ')':
-                finalstr+='<p id="gray">';
+                finalstr += '<span id="gray">';
+                finalstr += str[index];
+                finalstr += '</span><p></p>';
                 break;
-            default :
-                finalstr+='</p>';
-
+            // case ',':
+            //     finalstr += str[index];
+            //     finalstr += '<p></p>';
+            //     break;
+            default:
+                finalstr += str[index];
 
         }
 
-        finalstr += str[index];
-
     }
 
-    return "";
+    return finalstr +"</code></pre>";
 }
 
-export function insert(insertStr: string,index:number, base: string): string {
+export function insert(insertStr: string, index: number, base: string): string {
 
 
-    return base.slice(0,index) + insertStr + base.slice(index);
+    return base.slice(0, index) + insertStr + base.slice(index);
 }
 
 // console.log();

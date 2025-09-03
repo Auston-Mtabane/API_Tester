@@ -1,5 +1,5 @@
 import "../styles/styleJson.css";
-import {insert} from '../processJson';
+import { strJsonToPrittyHtml} from '../processJson';
 
 interface Resp {
   data: string;
@@ -14,15 +14,20 @@ function Response({ data }: Resp) {
   let str: string = `Response ${data}`;
   return (
     <>
-      {/* <div id="response">
+      <div id="response" >
         <div id="title-div">
           <h4>Response: </h4>
           
         </div>
-        {JSON.stringify(g, null, 2)}
-      </div> */}
-      <div id="response" dangerouslySetInnerHTML={{__html:str}}/>
-      {/* {insert("for",6,"super six")} */}
+         {/* <div id="body" dangerouslySetInnerHTML={{__html:strJsonToPrittyHtml(data)}}/> */}
+         <pre>
+          <code className="language-json"dangerouslySetInnerHTML={{__html:data}} />
+
+
+          
+         </pre>
+      </div>
+     
     </>
   );
 }
