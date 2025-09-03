@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .rounded-div {
@@ -107,7 +106,7 @@ option {
 }
 
 #response {
-  color: #ff4daf;
+  /* color: #ff4daf; */
   display: block;
   justify-content: left;
   margin-top: 1em;
@@ -118,6 +117,11 @@ option {
   border: 1px solid rgb(194, 194, 194);
   border-radius: 20px;
 }
+.hljs-attr { color: #fab387; }   /* keys */
+.hljs-string { color: #a6e3a1; } /* strings */
+.hljs-number { color: #f38ba8; } /* numbers */
+.hljs-literal { color: #89b4fa; } /* true, false, null */
+.hljs-punctuation { color: #cdd6f4; }
 
 #title-div {
   display: flex;
