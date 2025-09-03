@@ -9,6 +9,16 @@ function App() {
 
   return (
     <>
+    <video
+        className="bg-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     <h1>Test Your APIs</h1>
     <p>on a simpler UI and a nice summarized stats and performance of your APIs</p>
     <Request setRespData={setResponseData}/>
