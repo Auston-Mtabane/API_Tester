@@ -22,7 +22,7 @@ function Response({ data }: Resp) {
     if (codeRef.current) {
       hljs.highlightElement(codeRef.current);
     }
-  }, [g]);
+  }, [data]);
 
   return (
     <>
@@ -30,7 +30,6 @@ function Response({ data }: Resp) {
         <div id="title-div">
           <h4>Response: </h4>
         </div>
-        {/* <div id="body" dangerouslySetInnerHTML={{__html:strJsonToPrittyHtml(data)}}/> */}
         <pre>
           <code ref={codeRef} className="language-json">{JSON.stringify(g,null,2)}</code>
         </pre>

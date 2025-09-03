@@ -2,6 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  text-align: center;
 }
 
 .rounded-div {
@@ -107,6 +108,7 @@ option {
 
 #response {
   /* color: #ff4daf; */
+  text-align: left;
   display: block;
   justify-content: left;
   margin-top: 1em;
@@ -117,6 +119,18 @@ option {
   border: 1px solid rgb(194, 194, 194);
   border-radius: 20px;
 }
+
+.hljs {
+  background: #3e3e4b;  /* dark purple-ish */
+  color: #cdd6f4;       /* light gray */
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
 .hljs-attr { color: #fab387; }   /* keys */
 .hljs-string { color: #a6e3a1; } /* strings */
 .hljs-number { color: #f38ba8; } /* numbers */
