@@ -11,3 +11,24 @@
 #blue {
     color: rgb(18, 173, 173);
 }
+pre {
+    background-color: #2a2a30;
+    padding: 1em;
+    border-radius: 1em;
+}
+.hljs {
+  background: #48485a;  /* dark purple-ish */
+  color: #cdd6f4;       /* light gray */
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.hljs-attr { color: #fab387; }   /* keys */
+.hljs-string { color: #a6e3a1; } /* strings */
+.hljs-number { color: #f38ba8; } /* numbers */
+.hljs-literal { color: #89b4fa; } /* true, false, null */
+.hljs-punctuation { color: #cdd6f4; }
