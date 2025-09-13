@@ -12,8 +12,11 @@ async function sendReq (url:string,method:string,data_:string): Promise<any> {
       console.log('Time: ',endTime-startTime," ms")
       const data = await response.json();
       console.log("Response:", data);
-
-      return data;
+      
+      const metadata = {"HttpStatus":response.status,
+        "RequestSpeed_ms":endTime-startTime,
+      }
+      return [data,metadata];
       
     } catch (error) {
       console.error("Error:", error);
@@ -41,8 +44,9 @@ function ApiLinkSection({setRespData}:Resp) {
   }
  
   const handleSubmit = async () =>{
-    const data = await sendReq(url,classname,body);
+    const [data,metadata] = await sendReq(url,classname,body);
     setRespData(JSON.stringify(data));
+    console.log(metadata);
     
   }
 

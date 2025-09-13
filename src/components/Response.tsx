@@ -3,6 +3,7 @@ import hljs from "highlight.js/lib/core";
 import json from "highlight.js/lib/languages/json";
 import "highlight.js/styles/github-dark.css";
 import "../styles/styleJson.css";
+import MetaData from "./MetaData";
 hljs.registerLanguage("json", json);
 
 interface Resp {
@@ -29,7 +30,9 @@ function Response({ data }: Resp) {
     <div id="response">
       <div id="title-div">
         <h4>Response:</h4>
+        <MetaData />
       </div>
+      
       <pre >
         <code ref={codeRef} className="language-json" />
       </pre>
