@@ -6,11 +6,12 @@ import "../styles/styleJson.css";
 import MetaData from "./MetaData";
 hljs.registerLanguage("json", json);
 
-interface Resp {
+type Resp = {
   data: string;
+  metadata :Record<string,any>
 }
 
-function Response({ data }: Resp) {
+function Response({ data,metadata }: Resp) {
   let g = { message: "Welcome to Auston's API Tester", version: "^1.0.0" };
   if (data !== "") {
     g = JSON.parse(data);

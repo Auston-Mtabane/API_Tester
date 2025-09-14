@@ -2,7 +2,7 @@ import { useState } from "react";
 import '../styles/App.css';
 
 async function sendReq (url:string,method:string,data_:string): Promise<any> {
-  method = "GET"
+
   console.log(`Sending ${method} request to ${url} with ${data_}`);
     const bodyData = (data_ === "") ? undefined : data_;
     try {
@@ -12,10 +12,16 @@ async function sendReq (url:string,method:string,data_:string): Promise<any> {
       console.log('Time: ',endTime-startTime," ms")
       const data = await response.json();
       console.log("Response:", data);
-      
-      const metadata = {"HttpStatus":response.status,
-        "RequestSpeed_ms":endTime-startTime,
+    
+      const responseDataSize = new TextEncoder().encode(JSON.stringify(data)).length/1024;
+      const metadata = {"StatusCode":response.status,
+        "StatusText":response.statusText,
+        "RequestSpeed_ms":(endTime-startTime).toFixed(2) + " ms",
+        "responseDataSize":  responseDataSize.toFixed(3) + " kB"
+
       }
+      console.log(metadata);
+
       return [data,metadata];
       
     } catch (error) {
@@ -23,8 +29,13 @@ async function sendReq (url:string,method:string,data_:string): Promise<any> {
       return {}; // Always return an object
     }
 }
+interface respData {
+  data :String,
+  metadta:{}
+
+}
 interface Resp{
-  setRespData:React.Dispatch<React.SetStateAction<string>>
+  setRespData:React.Dispatch<React.SetStateAction<respData>>
 }
 function ApiLinkSection({setRespData}:Resp) {
 
@@ -44,9 +55,11 @@ function ApiLinkSection({setRespData}:Resp) {
   }
  
   const handleSubmit = async () =>{
-    const [data,metadata] = await sendReq(url,classname,body);
-    setRespData(JSON.stringify(data));
-    console.log(metadata);
+    // const [data,metadata] = await sendReq(url,classname,body);
+    const r = await sendReq(url,classname,body);
+
+    setRespData(r);
+    // console.log(metadata);
     
   }
 

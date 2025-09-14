@@ -1,11 +1,15 @@
 import "./styles/App.css";
 import Request from "./components/Request";
-import MetaData from "./components/MetaData";
 import Response from "./components/Response";
 import { useState } from "react";
 
+type Resp = {
+  data: string;
+  metadata :Record<string,any>
+}
 function App() {
-  const [responseData, setResponseData] = useState("");
+
+  const [responseData, setResponseData] = useState<Resp>({data:"",metadata:{}});
 
   return (
     <>
@@ -20,7 +24,7 @@ function App() {
           APIs
         </p>
         <Request setRespData={setResponseData} />
-        <Response data={responseData} />
+        <Response data={responseData.data} metadata={responseData.metadata}/>
       </div>
     </>
   );
