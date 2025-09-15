@@ -3,13 +3,10 @@ import Request from "./components/Request";
 import Response from "./components/Response";
 import { useState } from "react";
 
-type Resp = {
-  data: string;
-  metadata :Record<string,any>
-}
+
 function App() {
 
-  const [responseData, setResponseData] = useState<Resp>({data:"",metadata:{}});
+  const [responseData, setResponseData] = useState<string>("");
 
   return (
     <>
@@ -24,7 +21,7 @@ function App() {
           APIs
         </p>
         <Request setRespData={setResponseData} />
-        <Response data={responseData.data} metadata={responseData.metadata}/>
+        <Response data={responseData} />
       </div>
     </>
   );

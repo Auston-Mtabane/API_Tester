@@ -6,24 +6,22 @@ import "../styles/styleJson.css";
 import MetaData from "./MetaData";
 hljs.registerLanguage("json", json);
 
-type Resp = {
-  data: string;
-  metadata :Record<string,any>
-}
+function Response({ data }: { data: string }) {
+  let metadata = {};
+  let responseData = {};
 
-function Response({ data,metadata }: Resp) {
-  let g = { message: "Welcome to Auston's API Tester", version: "^1.0.0" };
-  if (data !== "") {
-    g = JSON.parse(data);
-  }
+
 
   const codeRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (codeRef.current) {
-      const formatted = JSON.stringify(g, null, 2);
+      let g = (data === "") ? { message: "Welcome to Auston's API Tester", version: "^1.0.0" }: JSON.parse(data);
+      metadata = g.metadata;
+      responseData = g.data;
+      const formatted = JSON.stringify(responseData || g, null, 2);
       const highlighted = hljs.highlight(formatted, { language: "json" }).value;
-      codeRef.current.innerHTML = highlighted; // inject HTML with colors
+      codeRef.current.innerHTML = highlighted;
     }
   }, [data]);
 
@@ -33,8 +31,8 @@ function Response({ data,metadata }: Resp) {
         <h4>Response:</h4>
         <MetaData />
       </div>
-      
-      <pre >
+
+      <pre>
         <code ref={codeRef} className="language-json" />
       </pre>
     </div>

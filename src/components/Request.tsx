@@ -20,22 +20,20 @@ async function sendReq (url:string,method:string,data_:string): Promise<any> {
         "responseDataSize":  responseDataSize.toFixed(3) + " kB"
 
       }
-      console.log(metadata);
 
-      return [data,metadata];
+
+      let responseData = {"data":data,"metadata":metadata};
+      console.log("Response with metadata:", responseData);
+      return responseData;
       
     } catch (error) {
       console.error("Error:", error);
-      return {}; // Always return an object
+      return {}; 
     }
 }
-interface respData {
-  data :String,
-  metadta:{}
 
-}
 interface Resp{
-  setRespData:React.Dispatch<React.SetStateAction<respData>>
+  setRespData:React.Dispatch<React.SetStateAction<string>>
 }
 function ApiLinkSection({setRespData}:Resp) {
 
@@ -57,9 +55,8 @@ function ApiLinkSection({setRespData}:Resp) {
   const handleSubmit = async () =>{
     // const [data,metadata] = await sendReq(url,classname,body);
     const r = await sendReq(url,classname,body);
-
-    setRespData(r);
-    // console.log(metadata);
+    setRespData(JSON.stringify(r));
+    console.log("Response in Request.tsx:",r); 
     
   }
 
