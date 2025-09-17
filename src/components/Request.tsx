@@ -4,31 +4,53 @@ import '../styles/App.css';
 async function sendReq (url:string,method:string,data_:string): Promise<any> {
 
   console.log(`Sending ${method} request to ${url} with ${data_}`);
-    const bodyData = (data_ === "") ? undefined : data_;
+    let bodyData;
+    let headers_ ;
+
+    switch(method){
+      case "GET":
+        bodyData = undefined;
+        headers_ = undefined;
+        break;
+      case "POST":
+      case "PUT":
+        bodyData = (data_ === "") ? undefined : data_;
+        headers_ = { "Content-Type": "application/json" };
+        break;
+    }
+    console.log("Body JSON:", bodyData);
+    console.log(`Sending ${method} request to ${url} with ${bodyData}`);
     try {
       const startTime = performance.now();
-      const response = await fetch(url, { method: method, body: bodyData });
+      const response = await fetch(url, 
+      { method: method,
+        headers: headers_,
+        body: bodyData 
+      
+      });
       const endTime = performance.now();
-      console.log('Time: ',endTime-startTime," ms")
+      console.log("Headers",response.headers);
       const data = await response.json();
       console.log("Response:", data);
     
       const responseDataSize = new TextEncoder().encode(JSON.stringify(data)).length/1024;
       const metadata = {"StatusCode":response.status,
         "StatusText":response.statusText,
-        "RequestSpeed_ms":(endTime-startTime).toFixed(2) + " ms",
-        "responseDataSize":  responseDataSize.toFixed(3) + " kB"
-
+        "RequestSpeed_ms":(endTime-startTime).toFixed(2) ,
+        "responseDataSize_kb":  responseDataSize.toFixed(3)
       }
+      console.log(data)
+
 
 
       let responseData = {"data":data,"metadata":metadata};
       console.log("Response with metadata:", responseData);
       return responseData;
       
-    } catch (error) {
-      console.error("Error:", error);
-      return {}; 
+    }
+     catch (e ) {
+      console.error("Error:", e);
+      return {"Error: ":e}; 
     }
 }
 
@@ -75,7 +97,8 @@ function ApiLinkSection({setRespData}:Resp) {
           <button type="submit" onClick={handleSubmit}>SEND</button>
         </div>
         <div className="request-body" hidden={showBody} >
-          <input type="text" onChange={(e)=>{setBody(e.target.value)}}/>
+          <textarea name="jsonbody" id="jsonbody" onChange={(e)=>{setBody(e.target.value)}}></textarea>
+          {/* <input type="text" onChange={(e)=>{setBody(e.target.value)}}/> */}
         </div>
       </div>
   );
