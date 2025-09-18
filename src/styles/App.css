@@ -179,19 +179,34 @@ option {
 .request-body{
   width: 100%;
 
+
+
 }
 .request-body textarea{
+  padding: 1em;
   margin: 1em;
   padding: none;
-  width: 95%;
+  width: 90%;
   overflow-y:scroll;
-  min-height: 4rem;
-  background: #2e2e2ede;
+  min-height: 2rem;
+  background:  #2e2e2ea4;
   border-radius: 10px;
   font-family: monospace;
   font-size: 1em;
   overflow-x: auto;
   mix-blend-mode: multiply;
   transition: all 0.3s;
+  border: 1px solid gray;
+  /* box-shadow: 0 5px 5px 6px #9b9b9b54; */
   
+}
+
+.request-body p {
+  text-align: left;
+
+  padding-top:1rem ;
+  margin: 0;
+  margin-top: 1rem;
+  padding-inline: 1em;
+
 }

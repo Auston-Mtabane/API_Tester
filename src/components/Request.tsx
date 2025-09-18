@@ -97,7 +97,7 @@ function ApiLinkSection({setRespData}:Resp) {
           <button type="submit" onClick={handleSubmit}>SEND</button>
         </div>
         <div className="request-body" hidden={showBody} >
-          <textarea name="jsonbody" id="jsonbody" onChange={(e)=>{setBody(e.target.value)}}></textarea>
+          <textarea placeholder={`JSON here!`} name="jsonbody" id="jsonbody" onChange={(e)=>{setBody(e.target.value)}}></textarea>
           {/* <input type="text" onChange={(e)=>{setBody(e.target.value)}}/> */}
         </div>
       </div>
