@@ -20,7 +20,7 @@ function Response({ data }: { data: string }) {
 
   useEffect(() => {
     if (codeRef.current) {
-      let g = (data === "") ? { message: "Welcome to Auston's API Tester", version: "^1.0.0" }: JSON.parse(data);
+      let g = (data === "") ? { message: "Welcome to Auston's API Tester", version: __APP_VERSION__ }: JSON.parse(data);
       handleMetadata(g.metadata);
       responseData = g.data;
       const formatted = JSON.stringify(responseData || g, null, 2);

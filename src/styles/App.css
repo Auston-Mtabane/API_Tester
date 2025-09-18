@@ -1,13 +1,15 @@
-:root[theme="light"]{
+:root[theme="light"] {
   --blendemod: soft-light;
-  --text :gray;
-  --div :rgba(168, 168, 168, 0.212);
+  --text: gray;
+  --div: rgba(168, 168, 168, 0.212);
 }
-:root[theme="dark"]{
+
+:root[theme="dark"] {
   --blendemod: none;
-  --text :rgb(180, 180, 180);
-  --div :rgba(255, 255, 255, 0.178);
+  --text: rgb(180, 180, 180);
+  --div: rgba(255, 255, 255, 0.178);
 }
+
 #root {
   max-width: 1280px;
   padding: 2rem;
@@ -62,7 +64,7 @@
   border-bottom-right-radius: 0.7em;
   transition: all 0.3s;
   background-color: rgba(124, 196, 255, 0.82);
-  
+
 }
 
 .rounded-div button:active {
@@ -171,25 +173,26 @@ option {
   z-index: -2;
   transition: all 0.7s;
   mix-blend-mode: var(--blendemod);
-  
+
 
 }
 
 
-.request-body{
+.request-body {
   width: 100%;
 
 
 
 }
-.request-body textarea{
+
+.request-body textarea {
   padding: 1em;
   margin: 1em;
   padding: none;
   width: 90%;
-  overflow-y:scroll;
+  overflow-y: scroll;
   min-height: 2rem;
-  background:  #2e2e2ea4;
+  background: #2e2e2ea4;
   border-radius: 10px;
   font-family: monospace;
   font-size: 1em;
@@ -198,15 +201,36 @@ option {
   transition: all 0.3s;
   border: 1px solid gray;
   /* box-shadow: 0 5px 5px 6px #9b9b9b54; */
-  
+
 }
 
 .request-body p {
   text-align: left;
 
-  padding-top:1rem ;
+  padding-top: 1rem;
   margin: 0;
   margin-top: 1rem;
   padding-inline: 1em;
 
+}
+
+#icon {
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  padding: 3px;
+
+}
+
+#icon img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.7;
+
+}
+
+#icon img:active {
+  transform: scale(0.85);
 }

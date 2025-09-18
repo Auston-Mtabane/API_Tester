@@ -21,13 +21,15 @@ function App() {
         <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <button onClick={toggleTheme}>
-        Switch to {theme === "dark" ? "Light" : "Dark"} Mode
-      </button>
+
+      <div id="icon" onClick={toggleTheme}>
+        <img src={`${theme}.svg`} alt="icon" width={32} className={`rotate`}/>
+      </div>
+      
       <div id="container">
         <h1>Test Your APIs</h1>
         <p>
-          on a simpler UI and a nice summarized stats and performance of your
+          on a much simpler UI and a nice summarized stats and performance of your
           APIs
         </p>
         <Request setRespData={setResponseData} />

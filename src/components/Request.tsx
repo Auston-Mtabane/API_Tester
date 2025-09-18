@@ -1,7 +1,7 @@
 import { useState } from "react";
 import '../styles/App.css';
 
-async function sendReq (url:string,method:string,data_:string): Promise<any> {
+export async function sendReq (url:string,method:string,data_:string): Promise<any> {
 
   console.log(`Sending ${method} request to ${url} with ${data_}`);
     let bodyData;
