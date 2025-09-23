@@ -22,9 +22,16 @@ function App() {
         Your browser does not support the video tag.
       </video>
 
-      <div id="icon" onClick={toggleTheme}>
-        <img src={`${theme}.svg`} alt="icon" width={32} className={`rotate`}/>
-      </div>
+      <header>
+        <div id="icon" onClick={toggleTheme}>
+            <img src={`${theme}.svg`} alt="icon" width={32} className={`rotate`}/>
+        </div>
+        <div id="logo">
+            <img src={`logo-${theme}.svg`} alt="logo" width={150}/>
+        </div>
+      </header>
+      
+
       
       <div id="container">
         <h1>Test Your APIs</h1>

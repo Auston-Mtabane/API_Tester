@@ -37,6 +37,7 @@
 }
 
 #container {
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   max-width: 800px;
@@ -233,4 +234,9 @@ option {
 
 #icon img:active {
   transform: scale(0.85);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
 }
