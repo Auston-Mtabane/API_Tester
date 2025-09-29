@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [responseData, setResponseData] = useState<string>("");
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     document.documentElement.setAttribute("theme", theme);
